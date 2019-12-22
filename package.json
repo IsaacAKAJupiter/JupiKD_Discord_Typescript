@@ -1,0 +1,28 @@
+{
+    "name": "jupikd_discord",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "dev": "concurrently \"tsc -w\" \"nodemon dist/main.js\"",
+        "run": "tsc -b && node dist/main.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^5.0.2",
+        "nodemon": "^2.0.2",
+        "typescript": "^3.7.4"
+    },
+    "dependencies": {
+        "@types/node": "^12.12.21",
+        "bufferutil": "^4.0.1",
+        "discord.js": "^11.5.1",
+        "dotenv": "^8.2.0",
+        "erlpack": "github:discordapp/erlpack",
+        "libsodium-wrappers": "^0.7.6",
+        "node-opus": "^0.3.3",
+        "utf-8-validate": "^5.0.2",
+        "zlib-sync": "^0.1.6"
+    }
+}
