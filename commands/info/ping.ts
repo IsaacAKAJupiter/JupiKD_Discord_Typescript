@@ -6,6 +6,7 @@ module.exports = <Command>{
     aliases: ['latency', 'lag'],
     category: 'info',
     description: 'Displays the ping of the bot.',
+    nsfw: false,
     usage: '',
     minArgs: 0,
     cooldown: 5,

@@ -75,3 +75,19 @@ export function GetMember(
 
     return member;
 }
+
+/**
+ * Turns total seconds into a formatted string of hours, minutes and seconds.
+ *
+ * @param totalSeconds The total seconds as a number.
+ * @returns A `string` of the formatted time.
+ */
+export function TotalSecondsToHMS(totalSeconds: number): string {
+    // Get the hours, minutes and seconds from total seconds.
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor((totalSeconds % 3600) / 60);
+    let seconds = `${totalSeconds % 60}`.padStart(2, '0');
+
+    // Return the formatted string.
+    return `${hours > 0 ? `${hours}:` : ''}${minutes}:${seconds}`;
+}

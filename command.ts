@@ -6,6 +6,7 @@ export default interface Command {
     aliases?: string[];
     category: string;
     description: string;
+    nsfw: boolean;
     usage: string;
     minArgs: number;
     cooldown: number;

@@ -67,6 +67,18 @@ module.exports = async (client: Bot, message: discord.Message) => {
         return;
     }
 
+    // Check if NSFW command used in non-NSFW channel.
+    if (
+        cmd.nsfw &&
+        message.channel instanceof discord.TextChannel &&
+        !message.channel.nsfw
+    ) {
+        await message.channel.send(
+            `${message.author} You cannot use an NSFW command in a non-NSFW channel.`
+        );
+        return;
+    }
+
     // Check the cooldowns.
     let cooldown = client.cooldowns.get(cmd.name);
 

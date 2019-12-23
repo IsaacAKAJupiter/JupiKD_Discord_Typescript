@@ -7,6 +7,7 @@ module.exports = <Command>{
     category: 'info',
     description:
         'Lists all of the commands or information about a specific command.',
+    nsfw: false,
     usage: '[command]',
     minArgs: 0,
     cooldown: 5,
