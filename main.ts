@@ -6,7 +6,7 @@ import { config } from 'dotenv';
 // Configure dotenv.
 config();
 
-let client = new Bot(<string>process.env.DISCORD_BOT_OWNER);
+let client = new Bot(<string>process.env.DISCORD_BOT_OWNER, '.');
 
 // Load all of the events.
 fs.readdir(

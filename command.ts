@@ -11,6 +11,8 @@ export default interface Command {
     cooldown: number;
     cooldownType: 'user' | 'guild' | 'global';
     cooldownOwner: boolean;
+    permissions?: discord.PermissionString[];
+    ownerCommand: boolean;
     runType: 'any' | 'guildOnly' | 'dmOnly';
-    run: (client: Bot, message: discord.Message, args?: string[]) => any;
+    run: (client: Bot, message: discord.Message, args: string[]) => any;
 }

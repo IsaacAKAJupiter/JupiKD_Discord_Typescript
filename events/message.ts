@@ -1,10 +1,8 @@
 import discord from 'discord.js';
 import Bot from '../bot';
+import { CheckPermissions } from '../functions';
 
 module.exports = async (client: Bot, message: discord.Message) => {
-    // Set the prefix.
-    const prefix = '.';
-
     // Ignore if statements.
     if (message.author.bot) return;
     if (!client.commands) return;
@@ -12,7 +10,7 @@ module.exports = async (client: Bot, message: discord.Message) => {
     let messageParsed;
 
     // Check if the message does not start with the prefix or the mention of the bot.
-    if (!message.content.startsWith(prefix)) {
+    if (!message.content.startsWith(client.prefix)) {
         // If not starting with prefix, check mention.
         messageParsed = message.content.replace(/^<@[^0-9]([0-9]+)>/, '$1');
         if (!messageParsed.startsWith(client.user.id)) return;
@@ -28,7 +26,7 @@ module.exports = async (client: Bot, message: discord.Message) => {
     // Get the arguements and the command.
     if (!messageParsed) {
         args = message.content
-            .slice(prefix.length)
+            .slice(client.prefix.length)
             .trim()
             .split(/ +/g);
     } else {
@@ -64,7 +62,7 @@ module.exports = async (client: Bot, message: discord.Message) => {
     // Check the minArgs.
     if (args.length < cmd.minArgs) {
         await message.channel.send(
-            `${message.author} You did not send the correct amount of arguments. Sent: ${args.length}. Required: ${cmd.minArgs}.\n The proper usage for the command is "${prefix}${cmd.name} ${cmd.usage}".`
+            `${message.author} You did not send the correct amount of arguments. Sent: ${args.length}. Required: ${cmd.minArgs}.\n The proper usage for the command is "${client.prefix}${cmd.name} ${cmd.usage}".`
         );
         return;
     }
@@ -167,6 +165,20 @@ module.exports = async (client: Bot, message: discord.Message) => {
                 );
             }
             break;
+    }
+
+    // Check for permissions.
+    if (
+        !CheckPermissions(
+            message.guild ? message.member : message.author,
+            cmd,
+            client
+        )
+    ) {
+        await message.channel.send(
+            `${message.author} You do not have permission to use this command.`
+        );
+        return;
     }
 
     // Run the command

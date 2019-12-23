@@ -6,7 +6,7 @@ export default class Bot extends discord.Client {
     public aliases: discord.Collection<string, string>;
     public cooldowns: discord.Collection<string, any>;
 
-    constructor(public owner: string) {
+    constructor(public owner: string, public prefix: string) {
         super();
 
         this.commands = new discord.Collection();

@@ -11,6 +11,7 @@ module.exports = <Command>{
     cooldown: 5,
     cooldownType: 'user',
     cooldownOwner: false,
+    ownerCommand: true,
     runType: 'any',
     run: async (client, message, args) => {
         // Send the original message.
@@ -26,7 +27,7 @@ module.exports = <Command>{
 
         // Edit the original message.
         await msg.edit(
-            `Pong!\nLatency is ${latency}ms\nAPI Latency is ${latencyAPI}ms.`
+            `Pong!\nLatency is ${latency}ms.\nAPI Latency is ${latencyAPI}ms.`
         );
     }
 };
