@@ -12,7 +12,7 @@ module.exports = <Command>{
     cooldown: 5,
     cooldownType: 'user',
     cooldownOwner: false,
-    ownerCommand: true,
+    ownerCommand: false,
     runType: 'any',
     run: async (client, message, args) => {
         // Send the original message.
