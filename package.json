@@ -10,21 +10,21 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "concurrently": "^5.0.2",
+        "concurrently": "^5.1.0",
         "nodemon": "^2.0.2",
-        "typescript": "^3.7.4"
+        "typescript": "^3.8.3"
     },
     "dependencies": {
-        "@types/node": "^12.12.21",
+        "@types/node": "^12.12.30",
         "bufferutil": "^4.0.1",
-        "dayjs": "^1.8.18",
-        "discord.js": "^11.5.1",
+        "dayjs": "^1.8.23",
+        "discord.js": "^11.6.2",
         "dotenv": "^8.2.0",
         "erlpack": "github:discordapp/erlpack",
         "libsodium-wrappers": "^0.7.6",
         "node-opus": "^0.3.3",
         "utf-8-validate": "^5.0.2",
-        "ytdl-core": "^1.0.5",
+        "ytdl-core": "^1.0.9",
         "zlib-sync": "^0.1.6"
     }
 }
